@@ -1,4 +1,4 @@
-apiVersion: argoprog.io/v1aplha1
+apiVersion: argoproj.io/v1aplha1
 kind: Application
 metadata:
   name: online-shop-app
