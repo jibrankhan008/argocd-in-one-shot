@@ -1,4 +1,4 @@
-apiVersion: argoproj.io/v1alpha1
+apiVersion: argoprog.io/v1aplha1
 kind: Application
 metadata:
   name: online-shop-app
@@ -10,7 +10,7 @@ spec:
     repoURL: https://github.com/jibrankhan008/argocd-in-one-shot.git
     targetRevision: main
     path: 04_first_app_deployment/declarative_approach/online_shop
-  
+
   destination:
     server: https://kubernetes.default.svc
     namespace: default
@@ -19,3 +19,4 @@ spec:
     automated:
       prune: true
       selfHeal: true
+
