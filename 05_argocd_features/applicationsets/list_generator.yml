@@ -4,30 +4,27 @@ metadata:
   name: demo-list
   namespace: argocd
 spec:
-  # The list generator lets you enumerate a static set of elements (apps).
   generators:
     - list:
         elements:
           - app: nginx
-            path: ui_approach/nginx     # path in repo for this app
-          - app: online-shop
-            path: multicluster/online-shop   # path in repo for this app
-          - app: chaiapp
-            path: applicationsets/chai-app      # path in repo for this app
-  # Template that will be used to generate individual Application CRs
+            path: 04_first_app_deployment/ui_approach/nginx
+          - app: apache
+            path: 04_first_app_deployment/cli_approach/apache
+          - app: online_shop
+            path: 04_first_app_deployment/declarative_approach/online_shop
   template:
     metadata:
-      # name template uses the element key 'app'
       name: '{{app}}-list'
     spec:
       project: default
       source:
-        repoURL: https://github.com/<your-username>/argocd-demos.git
+        repoURL: https://github.com/jibrankhan008/argocd-in-one-shot.git
         targetRevision: main
-        path: '{{path}}'                # resolved from element
+        path: '{{path}}'
       destination:
         server: https://kubernetes.default.svc
-        namespace: default
+        namespace: argocd
       syncPolicy:
         automated:
           prune: true
