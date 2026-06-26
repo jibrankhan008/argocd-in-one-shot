@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: apache-app
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/jibrankhan008/argocd-in-one-shot.git
+    targetRevision: main
+    path: 04_first_app_deployment/cli_approach/apache
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: argocd
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
