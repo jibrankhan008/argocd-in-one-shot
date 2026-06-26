@@ -1,18 +1,22 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: root-app
+  name: online-shop-app
   namespace: argocd
 spec:
   project: default
+  
   source:
     repoURL: https://github.com/jibrankhan008/argocd-in-one-shot.git
     targetRevision: main
-    path: 05_argocd_features/app_of_apps/apps
+    path: 04_first_app_deployment/declarative_approach/online_shop
+
   destination:
     server: https://kubernetes.default.svc
-    namespace: argocd
+    namespace: default
+
   syncPolicy:
     automated:
       prune: true
-      selfHeal: true  
+      selfHeal: true
+
