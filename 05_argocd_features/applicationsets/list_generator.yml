@@ -8,11 +8,11 @@ spec:
     - list:
         elements:
           - app: nginx
-            path: 04_first_app_deployment/ui_approach/nginx
+            path: 04_first_app_deployment/ui_approach/app_manifests
           - app: apache
-            path: 04_first_app_deployment/cli_approach/apache
-          - app: online_shop
-            path: 04_first_app_deployment/declarative_approach/online_shop
+            path: 04_first_app_deployment/cli_approach/app_manifests
+          - app: online-shop
+            path: 04_first_app_deployment/declarative_approach/app_manifests
   template:
     metadata:
       name: '{{app}}-list'
